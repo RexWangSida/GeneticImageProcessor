@@ -18,3 +18,8 @@ class Individual(object):
     ## @brief This is accessor of the maxColor
     def getFitness():
         return self.fitness
+
+    ## @brief This is the mutator of the image
+    #  @param newImage The new PPM image that will be stored in this object.
+    def changeImage(newImage):
+        self.image = newImage
