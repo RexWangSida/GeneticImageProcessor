@@ -10,3 +10,11 @@ class Individual(object):
     def _init_(image, fitness):
         self.image = image ##image is an instance of PPMImage
         self.fitness = fitness ##fitness is the difference between the given image and the new generated image
+
+    ## @brief This is accessor of the image
+    def getImage():
+        return self.image
+
+    ## @brief This is accessor of the maxColor
+    def getFitness():
+        return self.fitness
