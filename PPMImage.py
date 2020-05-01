@@ -16,8 +16,8 @@ class PPMImage(object):
         self.maxColor = maxColor
 
     ## @brief This is accessor of the pixel
-    def getPixel():
-        return self.pixel
+    def getPixels():
+        return self.pixels
 
     ## @brief This is accessor of the width
     def getWidth():

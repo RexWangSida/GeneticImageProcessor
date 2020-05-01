@@ -2,9 +2,9 @@
 #  @author Sida Wang
 #  @date May 1st 2020
 
-#  @brief This a method library that stores the methods supporting the image mutations.
 from random import randint
 
+#  @brief This a method library that stores the methods supporting the image mutations.
 class mutation():
     ## This function performs mutation on one individual image.
     def __mutate(allIndividuals, rate):
