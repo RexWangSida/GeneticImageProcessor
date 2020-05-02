@@ -9,24 +9,24 @@ class PPMImage(object):
     #  @param width The width of the PPM Image.
     #  @param height The height of the PPM Image.
     #  @param maxColor The maximum number of the r,g,b of the pixels in the image.
-    def _init_(pixels, width, height, maxColor):
+    def __init__(self, pixels, width, height, maxColor):
         self.pixels = pixels ##pixel is a list of dictionaries with r,g,b
         self.width = width
         self.height = height
         self.maxColor = maxColor
 
     ## @brief This is accessor of the pixel
-    def getPixels():
+    def getPixels(self):
         return self.pixels
 
     ## @brief This is accessor of the width
-    def getWidth():
+    def getWidth(self):
         return self.width
 
     ## @brief This is accessor of the height
-    def getHeight():
+    def getHeight(self):
         return self.height
 
     ## @brief This is accessor of the maxColor
-    def getMaxColor():
+    def getMaxColor(self):
         return self.maxColor

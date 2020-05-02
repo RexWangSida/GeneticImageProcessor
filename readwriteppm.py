@@ -11,24 +11,24 @@ class readwriteppm():
     #  @return The abstract type of the PPM that is to be processed.
     def readPPM(fileName):
         file = open(fileName, 'r')
-        format = file.readline()
+        format = file.readline().strip()
         if(format != "P3"):
-            raise exception("This file is not of PPM P3 Type")
-        secondLine = file.readline()
+            raise Exception("This file is not of PPM P3 Type")
+        secondLine = file.readline().strip()
         dimension = secondLine.split(' ')
-        width = dimension[0]
-        height = dimension[1]
-        thirdLine = file.readline()
+        width = int(dimension[0])
+        height = int(dimension[1])
+        thirdLine = file.readline().strip()
         maxC = thirdLine
         pixels = []
         for i in range(height):
-            rgbs = file.readline()
+            rgbs = file.readline().strip()
             rgbL = rgbs.split('  ')
             for j in range(width):
                 rgb = rgbL[j].split(' ')
-                pixel = dict{'r' : rgb[0],
-                'g' : rgb[1],
-                'b' : rgb[2]
+                pixel = {'r' : int(rgb[0]),
+                'g' : int(rgb[1]),
+                'b' : int(rgb[2])
                 }
                 pixels.append(pixel)
         file.close()
@@ -39,11 +39,11 @@ class readwriteppm():
     def writePPM(fileName, ppm):
         file = open(fileName, 'w')
         file.write("P3\n")
-        file.write(ppm.getWidth() + ' ' + ppm.getHeight() + '\n')
+        file.write(str(ppm.getWidth()) + ' ' + str(ppm.getHeight()) + '\n')
         file.write(ppm.getMaxColor()+ '\n')
         pixels = ppm.getPixels()
         for i in range(len(pixels)):
-            file.write(pixels[0]['r'] + ' ' + pixels[0]['g'] + ' ' pixels[0]['r'] + '  ')
+            file.write(str(pixels[i]['r']) + ' ' + str(pixels[i]['g']) + ' ' + str(pixels[i]['b']) + '  ')
             if i % len(pixels) == 0:
                 file.write('\n')
         file.close()

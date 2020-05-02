@@ -23,6 +23,5 @@ class mutation():
     #  @param rate The mutation rate.
     def mutatePopulation(allIndividuals, populationSize, rate):
         index = populationSize/4
-
         for i in range(populationSize):
             mutate(allIndividuals + i, rate)
