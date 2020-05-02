@@ -7,7 +7,7 @@ from random import randint
 #  @brief This a method library that stores the methods supporting the image mutations.
 class mutation():
     ## This function performs mutation on one individual image.
-    def __mutate(Individual, rate):
+    def __mutate(self, Individual, rate):
         imageSize = Individual['image']['width'] * allIndividuals['image']['height']
         mutateRate = int(rate/100 * imageSize)
         maxColor = Individual['image']['maxColor'] + 1
@@ -21,7 +21,7 @@ class mutation():
     #  @param allIndividuals All the images.
     #  @param populationSize The number of the population(all images).
     #  @param rate The mutation rate.
-    def mutatePopulation(allIndividuals, populationSize, rate):
+    def mutatePopulation(self, allIndividuals, populationSize, rate):
         index = populationSize/4
         for i in range(index, populationSize):
-            mutate(allIndividuals[i], rate)
+            __mutate(allIndividuals[i], rate)
