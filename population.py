@@ -14,13 +14,13 @@ from random import randint
 def generate_random_image(width, height, max_color):
 	random_size = height * width
 
-	L = [{}]
+	pixels = [{}]
 
 	for i in range(0, random_size):
-			L[i]['r'] = randit(0, max_color)
-            L[i]['g'] = randit(0, max_color)
-            L[i]['b'] = randit(0, max_color)
-	return L;
+			pixels[i]['r'] = randit(0, max_color)
+            pixels[i]['g'] = randit(0, max_color)
+            pixels[i]['b'] = randit(0, max_color)
+	return pixels;
 
 ## @brief This method generates a population with certificated size and contains multiple image
 #  @param population_size, the size of population
