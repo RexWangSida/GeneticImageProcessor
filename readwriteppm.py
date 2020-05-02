@@ -3,7 +3,7 @@
 #  @date May 1st 2020
 
 
-from PPMImage import PPMImage
+
 #  @brief This a method library that stores the methods for file I/O methods.
 class readwriteppm():
     ## @brief This function reads a PPM file and gives a abstract PPM data type as return.
@@ -32,16 +32,16 @@ class readwriteppm():
                 }
                 pixels.append(pixel)
         file.close()
-        return PPMImage(pixels, width, height, maxC)
+        return {'pixels' : pixels, 'width' : width, 'height' : height, 'maxColor' : maxC}
     ## @brief This function exports the abstract PPM to a given text file.
     #  @param filename The name of the file to be written to.
     #  @ppm filename The abstract PPM.
     def writePPM(fileName, ppm):
         file = open(fileName, 'w')
         file.write("P3\n")
-        file.write(str(ppm.getWidth()) + ' ' + str(ppm.getHeight()) + '\n')
-        file.write(ppm.getMaxColor()+ '\n')
-        pixels = ppm.getPixels()
+        file.write(str(ppm['width']) + ' ' + str(ppm['height']) + '\n')
+        file.write(ppm['maxColor']+ '\n')
+        pixels = ppm['pixels']
         for i in range(len(pixels)):
             file.write(str(pixels[i]['r']) + ' ' + str(pixels[i]['g']) + ' ' + str(pixels[i]['b']) + '  ')
             if i % len(pixels) == 0:
