@@ -24,4 +24,4 @@ class mutation():
     def mutatePopulation(self, allIndividuals, populationSize, rate):
         index = populationSize/4
         for i in range(index, populationSize):
-            __mutate(allIndividuals[i], rate)
+            mutate(allIndividuals[i], rate)
