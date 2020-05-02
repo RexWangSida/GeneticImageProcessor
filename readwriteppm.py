@@ -19,7 +19,7 @@ class readwriteppm():
         width = int(dimension[0])
         height = int(dimension[1])
         thirdLine = file.readline().strip()
-        maxC = thirdLine
+        maxC = int(thirdLine)
         pixels = []
         for i in range(height):
             rgbs = file.readline().strip()
