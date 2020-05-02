@@ -27,14 +27,14 @@ def generate_random_image(width, height, max_color):
 #  @param width, the width of each image
 #  @param height, the height of each image
 #  @param max_color, the maximum value of each RGB color in each image
-#  @return q, a list of all individuals as dictionary with image
+#  @return population, a list of all individuals as dictionary with image
 def generate_population(population_size, width, height, max_color):
-	q = [{}]
+	population = [{}]
 
 	for i in range(0, population_size):
-		 q[i]['image']['width'] = width
-         q[i]['image']['height'] = height
-         q[i]['image']['max_color'] = max_color
-		 q[i]['image']['pixels'] = generate_random_image(width, height, max_color);
-	return q;
+		 population[i]['image']['width'] = width
+         population[i]['image']['height'] = height
+         population[i]['image']['max_color'] = max_color
+		 population[i]['image']['pixels'] = generate_random_image(width, height, max_color);
+	return population;
 }
