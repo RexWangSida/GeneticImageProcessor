@@ -67,11 +67,11 @@ def comp_distance(A, B, image_size):
 
 ## @brief This method calculate fitness between each individual in a population and the input image
 #  @param image, the pixels of input image
-#  @param individual, the individuals in the population
+#  @param population, the population of all individuals
 #  @param population_size, the size of population
 #  @detail save the fitness to each individual
-def comp_fitness_population(image, individual, population_size):
-	size = individual[0]['image']['width'] * individual[0]['image']['height']
+def comp_fitness_population(image, population, population_size):
+	size = population[0]['image']['width'] * population[0]['image']['height']
 
 	for i in range(0, population_size):
-		individual[i]['fitness'] = comp_distance(individual[i]['image']['data'], image, size)
+		population[i]['fitness'] = comp_distance(population[i]['image']['data'], image, size)
