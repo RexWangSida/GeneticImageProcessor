@@ -12,15 +12,15 @@ from random import randint
 #  @param max_color, the maximum value of each RGB color
 #  @return L, a list of all pixels as dictionary with RGB color
 def generate_random_image(width, height, max_color):
-	random_size = height * width
+    random_size = height * width
 
-	pixels = [{}]
+    pixels = []
 
-	for i in range(0, random_size):
-			pixels[i]['r'] = randit(0, max_color)
-            pixels[i]['g'] = randit(0, max_color)
-            pixels[i]['b'] = randit(0, max_color)
-	return pixels;
+    for i in range(0, random_size):
+        pixels.append({'r':randint(0, max_color),
+                       'g':randint(0, max_color),
+                       'b':randint(0, max_color)})
+    return pixels;
 
 ## @brief This method generates a population with certificated size and contains multiple image
 #  @param population_size, the size of population
@@ -29,12 +29,12 @@ def generate_random_image(width, height, max_color):
 #  @param max_color, the maximum value of each RGB color in each image
 #  @return population, a list of all individuals as dictionary with image
 def generate_population(population_size, width, height, max_color):
-	population = [{}]
+    population = []
 
-	for i in range(0, population_size):
-		 population[i]['image']['width'] = width
-         population[i]['image']['height'] = height
-         population[i]['image']['max_color'] = max_color
-		 population[i]['image']['pixels'] = generate_random_image(width, height, max_color);
-	return population;
-}
+    for i in range(0, population_size):
+        population.append({'image':{'width':width,
+                                    'height':height,
+                                    'max_color':max_color,
+                                    'pixels':generate_random_image(width, height, max_color)},
+                           'fitness':100000000})
+    return population;
