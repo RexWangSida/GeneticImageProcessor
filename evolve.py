@@ -12,6 +12,7 @@
 #  @param populationSize int, the total number of the population
 #  @param mutateRate float, the percent of pixel that will be mutated for the image
 #  @return imageOut the image that is most similiar to imageIn
-def evolve_image(imageIn, numGenerations, populationSize, mutateRate):
-    imageOut = imageIn
-    return imageOut
+class evolve():
+    def evolve_image(imageIn, numGenerations, populationSize, mutateRate):
+        imageOut = imageIn
+        return imageOut

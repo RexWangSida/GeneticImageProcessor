@@ -40,10 +40,10 @@ class readwriteppm():
         file = open(fileName, 'w')
         file.write("P3\n")
         file.write(str(ppm['width']) + ' ' + str(ppm['height']) + '\n')
-        file.write(ppm['maxColor']+ '\n')
+        file.write(str(ppm['maxColor'])+ '\n')
         pixels = ppm['pixels']
         for i in range(len(pixels)):
             file.write(str(pixels[i]['r']) + ' ' + str(pixels[i]['g']) + ' ' + str(pixels[i]['b']) + '  ')
-            if i % len(pixels) == 0:
+            if i % len(pixels) == 0 and i != 0:
                 file.write('\n')
         file.close()
