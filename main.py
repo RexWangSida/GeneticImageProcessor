@@ -5,6 +5,7 @@ from evolve import *
 ##sys.argv[2] ----> produced new PPM image
 ##sys.argv[3] ----> No. Generations
 ##sys.argv[4] ----> population size
+##sys.argv[5] ----> mutation rate
 def main():
     if len(sys.argv) != 6:
         raise Exception("Invalid number of command line args!")
@@ -22,4 +23,4 @@ def main():
     ##write new image
     readwriteppm.writePPM(outputFile, newPPM)
 if __name__ == '__main__':
-  main()
+    main()

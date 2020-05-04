@@ -44,6 +44,6 @@ class readwriteppm():
         pixels = ppm['pixels']
         for i in range(len(pixels)):
             file.write(str(pixels[i]['r']) + ' ' + str(pixels[i]['g']) + ' ' + str(pixels[i]['b']) + '  ')
-            if i % len(pixels) == 0 and i != 0:
+            if i % ppm['width'] == 0 and i != 0:
                 file.write('\n')
         file.close()

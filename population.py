@@ -5,12 +5,9 @@
 #  @brief This file contains the methods of generationg random images
 
 from random import randint
+
 class population():
-	## @brief This method generates image with certificated size and randomized color each pixel
-	#  @param width, the width of image
-	#  @param height, the height of image
-	#  @param maxColor, the maximum value of each RGB color
-	#  @return L, a list of all pixels as dictionary with RGB color
+	## This method generates image with certificated size and randomized color each pixel
 	def __generateRandomImage(width, height, maxColor):
 	    randomSize = height * width
 
@@ -20,7 +17,7 @@ class population():
 	        pixels.append({'r':randint(0, maxColor),
 	                       'g':randint(0, maxColor),
 	                       'b':randint(0, maxColor)})
-	    return pixels;
+	    return pixels
 
 	## @brief This method generates a population with certificated size and contains multiple image
 	#  @param populationSize, the size of population
@@ -37,4 +34,4 @@ class population():
 	                                    'maxColor':maxColor,
 	                                    'pixels':generateRandomImage(width, height, maxColor)},
 	                           'fitness':100000000})
-	    return population;
+	    return population
