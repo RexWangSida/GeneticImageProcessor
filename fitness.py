@@ -58,3 +58,5 @@ class fitness():
 
 	    for i in range(0, populationSize):
 	        population[i]['fitness'] = compDistance(population[i]['image']['pixels'], image, size)
+
+		return population

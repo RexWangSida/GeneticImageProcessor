@@ -18,7 +18,7 @@ class evolve():
     #  @param mutateRate float, the percent of pixel that will be mutated for the image
     #  @return imageOut the image that is most similiar to imageIn
     def evolve_image(imageIn, numGenerations, populationSize, mutateRate):
-        crossover = CrossOver()
+
         p = population.generatePopulation(populationSize, imageIn["width"], imageIn["height"], imageIn["maxColor"])
 
         fitness.compFitnessPopulation(imageIn["pixels"], p, populationSize)
@@ -27,9 +27,7 @@ class evolve():
         sorted(p, key = lambda Individual: Individual["fitness"])
 
         for i in range(numGenerations):
-            crossover.crossover(p, populationSize)
-            mutation.mutatePopulation(p, populationSize, mutateRate)
-            fitness.compFitnessPopulation(imageIn, p, populationSize)
+            p = fitness.compFitnessPopulation(imageIn, mutation.mutatePopulation(CrossOver.crossover(p, populationSize), populationSize, mutateRate), populationSize)
             sorted(p, key = lambda Individual: Individual["fitness"])
 
         ## creating the output image
@@ -39,9 +37,5 @@ class evolve():
             "height": p[0]["image"]["height"],
             "maxColor": p[0]["image"]["maxColor"]
         }
-
-        ## free the list
-        del p[:]
-        del p
 
         return ImageOut

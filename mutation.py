@@ -16,6 +16,7 @@ class mutation():
             Individual['image']['pixels'][index]['r'] = randint(0,maxColor)
             Individual['image']['pixels'][index]['g'] = randint(0,maxColor)
             Individual['image']['pixels'][index]['b'] = randint(0,maxColor)
+        return Individual
 
     ## @brief This function performs mutations on the whole population.
     #  @param allIndividuals All the images.
@@ -24,4 +25,7 @@ class mutation():
     def mutatePopulation(allIndividuals, populationSize, rate):
         index = populationSize/4
         for i in range(index, populationSize):
-            mutate(allIndividuals[i], rate)
+            individual = mutate(allIndividuals[i], rate)
+            allIndividuals[i] = individual
+
+        return allIndividuals
