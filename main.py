@@ -1,6 +1,6 @@
 from readwriteppm import *
 import sys
-from evolve import *
+from population import *
 ##sys.argv[1] ----> given PPM image
 ##sys.argv[2] ----> produced new PPM image
 ##sys.argv[3] ----> No. Generations
@@ -19,7 +19,7 @@ def main():
     ppm = readwriteppm.readPPM(inputFile)
     print("\n" + "File: " + inputFile + ", " + str(ppm['width']) +"X"+ str(ppm['height']) + ", max color: " + str(ppm['maxColor']) + str(mutateRate/100 * ppm['width'] * ppm['height']) + " pixels to mutate.")
     ##perform operations on the image
-    newPPM = evolve.evolve_image(ppm, genNum, populationSize, mutateRate)
+    newPPM = population.evolve_image(ppm, genNum, populationSize, mutateRate)
     ##write new image
     readwriteppm.writePPM(outputFile, newPPM)
 if __name__ == '__main__':
