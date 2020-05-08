@@ -23,9 +23,9 @@ class readwriteppm():
         pixels = []
         for i in range(height):
             rgbs = file.readline().strip()
-            rgbL = rgbs.split('  ')
-            for j in range(width):
-                rgb = rgbL[j].split(' ')
+
+            for j in rgbs.split('  '):
+                rgb = j.split(' ')
                 pixel = {'r' : int(rgb[0]),
                 'g' : int(rgb[1]),
                 'b' : int(rgb[2])

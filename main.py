@@ -16,10 +16,13 @@ def main():
     populationSize = int(sys.argv[4])
     mutateRate = float(sys.argv[5])
     ##read image
-    ppm = readwriteppm.readPPM(inputFile)
+    ppm = readwriteppm.readPPM(outputFile)
     print("\n" + "File: " + inputFile + ", " + str(ppm['width']) +"X"+ str(ppm['height']) + ", max color: " + str(ppm['maxColor']) + str(mutateRate/100 * ppm['width'] * ppm['height']) + " pixels to mutate.")
+    ##generate population
+    allImages = population()
+    allImages.generatePopulation(populationSize, ppm['width'], ppm['height'], ppm['maxColor'])
     ##perform operations on the image
-    newPPM = population.evolve_image(ppm, genNum, populationSize, mutateRate)
+    newPPM = allImages.evolve_image(ppm, genNum, populationSize, mutateRate)
     ##write new image
     readwriteppm.writePPM(outputFile, newPPM)
 if __name__ == '__main__':

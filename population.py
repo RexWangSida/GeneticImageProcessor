@@ -2,31 +2,6 @@ from random import randint
 from math import sqrt
 import random
 
-class population():
-    def __generateRandomImage(width, height, maxColor):
-        randomSize = height*width
-        pixels = []
-        for i in range(0,randomSize):
-            pixels.append({'r':randint(0,maxColor),
-                            'g': randint(0,maxColor),
-                            'b': randint(0,maxColor)})
-        return pixels
-
-
-    def generatePopulation(populationSize, width, height, maxColor):
-        population = []
-
-        for i in range(0, populationSize):
-            population.append({
-                'image':{
-                    'width': width,
-                    'height': height,
-                    'maxColor':maxColor,
-                    'pixels': self.__generateRandomImage(width, height, maxColor),
-                },
-                'fitness' : 1000000
-            })
-        return population
 
 class population:
 
@@ -137,8 +112,6 @@ class population:
 
 
     def evolve_image(self, imageIn, numGenerations, populationSize, mutateRate):
-
-        self.__generatePopulation(populationSize, imageIn["width"], imageIn["height"], imageIn["maxColor"])
 
         self.__compFitnessPopulation(imageIn["pixels"], populationSize)
 
