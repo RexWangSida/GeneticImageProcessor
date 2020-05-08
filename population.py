@@ -83,21 +83,21 @@ class population:
 
     ## The following for loop will copy parent1,2 to child1,2 from [0] to
     ## [crossoverPoint]
-            for i in range(0, crossoverPoint):
-                self.population[i + populationSize // 2]["image"]["pixels"][i] = self.population[i]["image"]["pixels"][i]
-                self.population[i + populationSize // 2 + 1]["image"]["pixels"][i] = self.population[i + 1]["image"]["pixels"][i]
+            for j in range(0, crossoverPoint):
+                self.population[i + populationSize // 2]["image"]["pixels"][j] = self.population[i]["image"]["pixels"][j]
+                self.population[i + populationSize // 2 + 1]["image"]["pixels"][j] = self.population[i + 1]["image"]["pixels"][j]
     ## The following for loop will copy parent1,2 to child2,1 from
     ## [crossoverPoint] to [totalPixel - 1]
-            for i in range(crossoverPoint, totalPixel):
-                self.population[i + populationSize // 2 + 1]["image"]["pixels"][i] = self.population[i]["image"]["pixels"][i]
-                self.population[i + populationSize // 2]["image"]["pixels"][i] = self.population[i + 1]["image"]["pixels"][i]
+            for j in range(crossoverPoint, totalPixel):
+                self.population[i + populationSize // 2 + 1]["image"]["pixels"][j] = self.population[i]["image"]["pixels"][j]
+                self.population[i + populationSize // 2]["image"]["pixels"][j] = self.population[i + 1]["image"]["pixels"][j]
 
-    def __mutate(Individual, rate):
+    def __mutate(self,Individual, rate):
         imageSize = Individual['image']['width'] * Individual['image']['height']
-        mutateRate = int(rate/100 * imageSize)
+        mutateCoeff = int(rate/100 * imageSize)
         maxColor = Individual['image']['maxColor'] + 1
-        for i in range(mutateRate):
-            index = randint(0,imageSize)
+        for i in range(mutateCoeff):
+            index = randint(0,imageSize-1)
             Individual['image']['pixels'][index]['r'] = randint(0,maxColor)
             Individual['image']['pixels'][index]['g'] = randint(0,maxColor)
             Individual['image']['pixels'][index]['b'] = randint(0,maxColor)
@@ -105,9 +105,9 @@ class population:
 
 
     def __mutatePopulation(self, populationSize, rate):
-        index = populationSize/4
+        index = int(populationSize/4)
         for i in range(index, populationSize):
-            individual = mutate(self.population[i], rate)
+            individual = self.__mutate(self.population[i], rate)
             self.population[i] = individual
 
 

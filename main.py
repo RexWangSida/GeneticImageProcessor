@@ -24,6 +24,7 @@ def main():
     ##perform operations on the image
     newPPM = allImages.evolve_image(ppm, genNum, populationSize, mutateRate)
     ##write new image
+    print("Image successfully processed!")
     readwriteppm.writePPM(outputFile, newPPM)
 if __name__ == '__main__':
     main()
